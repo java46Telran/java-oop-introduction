@@ -72,6 +72,7 @@ class PersonEmployeeTests {
 		assertEquals(ANOTHER_WAGE_EMPLOYEE_SALARY, wageEmpl.computePay());
 	}
 
+	@Test
 	void salesPersonTest() {
 		SalesPerson salesPerson = new SalesPerson(ID, BIRTH_YEAR, EMAIL, BASIC_SALARY, SALES, PERCENT_PAY);
 		// SalesPerson constructor
