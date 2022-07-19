@@ -24,7 +24,7 @@ class CompanyTests {
 	private static final int BIRTH_YEAR3 = 2000;
 	private static final String EMAIL3 = "empl3@gmail.com";
 	private static final Integer COMPANY_SIZE = 3;
-	private static final int N_RUNS = 10000;
+	private static final int N_RUNS = 1000000;
 	private static final int N_EMPLOYEES = 10000;
 	ICompany company;
 	Employee empl1 = new WageEmployee(ID1, BIRTH_YEAR1, EMAIL1, BASIC_SALARY, WAGE, HOURS1);
@@ -88,7 +88,7 @@ class CompanyTests {
 	void performanceTest() {
 		fillRandomEmployees();
 		for(int i = 0; i < N_RUNS; i++) {
-			company.getAllEmployees();
+			company.getEmployee(100);
 		}
 	}
 
