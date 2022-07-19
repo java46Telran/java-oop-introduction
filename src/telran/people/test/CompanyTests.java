@@ -24,6 +24,8 @@ class CompanyTests {
 	private static final int BIRTH_YEAR3 = 2000;
 	private static final String EMAIL3 = "empl3@gmail.com";
 	private static final Integer COMPANY_SIZE = 3;
+	private static final int N_RUNS = 10000;
+	private static final int N_EMPLOYEES = 10000;
 	ICompany company;
 	Employee empl1 = new WageEmployee(ID1, BIRTH_YEAR1, EMAIL1, BASIC_SALARY, WAGE, HOURS1);
 	Employee empl2 = new SalesPerson(ID2, BIRTH_YEAR2, EMAIL2, BASIC_SALARY, SALES, PERCENT_PAY);
@@ -34,9 +36,9 @@ class CompanyTests {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		company = new CompanyArray();
+		//company = new CompanyArray();
 		//TODO for HW #10
-		//company = new CompanySortedArray(); //for HW #10 
+		company = new CompanySortedArray(); //for HW #10 
 		for (int i = 0; i < employees.length; i++) {
 			company.addEmployee(employees[i]);
 		}
@@ -80,6 +82,20 @@ class CompanyTests {
 		assertEquals(ID2, resultEmployees[1].getId());
 		assertEquals(ID3, resultEmployees[2].getId());
 		assertEquals(COMPANY_SIZE, resultEmployees.length);
+		
+	}
+	@Test
+	void performanceTest() {
+		fillRandomEmployees();
+		for(int i = 0; i < N_RUNS; i++) {
+			company.getAllEmployees();
+		}
+	}
+
+	private void fillRandomEmployees() {
+		for (int i = 0; i < N_EMPLOYEES; i++) {
+			company.addEmployee(new Employee((long)(Math.random() * Long.MAX_VALUE), 1980, EMAIL1, 1000));
+		}
 		
 	}
 
