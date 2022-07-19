@@ -24,7 +24,7 @@ protected  Employee[] employees = new Employee[0];
 		Employee res = employees[index];
 		Employee[] tmp = new Employee[employees.length - 1];
 		System.arraycopy(employees, 0, tmp, 0, index);
-		System.arraycopy(tmp, index, employees, index + 1, tmp.length - index);
+		System.arraycopy(employees, index+1, tmp, index, tmp.length - index);
 		employees = tmp;
 		
 		return res;
@@ -37,7 +37,7 @@ protected  Employee[] employees = new Employee[0];
 		return index < 0 ? null : employees[index];
 	}
 
-	private int getEmployeeIndex(long id) {
+	protected int getEmployeeIndex(long id) {
 		for(int i = 0; i < employees.length; i++) {
 			if (employees[i].getId() == id) {
 				return i;
