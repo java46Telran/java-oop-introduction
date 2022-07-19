@@ -7,15 +7,13 @@ public class CompanySortedArray extends CompanyArray {
 public boolean addEmployee(Employee empl) {
 		//TODO
 		//finds index for adding with keeping array sorted
-		//Arrays.binarySearch
+		//calls getEmployeeIndex
+		
 	return false;
 }
-	@Override
-	public Employee removeEmployee(long id) {
-		//TODO
-		return null;
-	}
-	private int getEmployeeIndex(long id) {
+	
+	@Override 
+	protected int getEmployeeIndex(long id) {
 		//TODO
 		// based on Arrays.binarySearch
 		return -1;
