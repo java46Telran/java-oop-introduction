@@ -34,9 +34,9 @@ class CompanyTests {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		company = new CompanyArray();
+		//company = new CompanyArray();
 		//TODO for HW #10
-		//company = new CompanyArraySorted(); //for HW #10 
+		company = new CompanySortedArray(); //for HW #10 
 		for (int i = 0; i < employees.length; i++) {
 			company.addEmployee(employees[i]);
 		}
