@@ -15,6 +15,8 @@ public class SalesPerson extends Employee {
 	}
 
 	public void setPercentPay(int percentPay) {
+		//TODO
+		// check percent value  according to possible percent value
 		this.percentPay = percentPay;
 	}
 

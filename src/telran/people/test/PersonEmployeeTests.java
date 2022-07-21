@@ -88,5 +88,24 @@ class PersonEmployeeTests {
 		salesPerson.setPercentPay(ANOTHER_PERCENT_PAY);
 		assertEquals(ANOTHER_SALES_PERSON_SALARY, salesPerson.computePay());
 	}
+	@Test
+	void wrongBirthYearTest () {
+		boolean flException = false;
+		try {
+			new SalesPerson(123, 2018, "sp@com",
+					1000, 100, 50);
+			
+		} catch (IllegalArgumentException e) {
+			flException = true;
+			System.out.println(e.getMessage());
+		}
+		assertTrue(flException);
+		try {
+			new Employee(100, 1913, ANOTHER_EMAIL, BASIC_SALARY);
+		} catch (IllegalArgumentException e) {
+			flException = true;
+			System.out.println(e.getMessage());
+		}
+	}
 
 }

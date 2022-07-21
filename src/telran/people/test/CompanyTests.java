@@ -98,5 +98,19 @@ class CompanyTests {
 		}
 		
 	}
+	@Test
+	void testSortByAge() {
+		Employee[] expected = {
+			empl3, empl1, empl2	
+		};
+		assertArrayEquals(expected, company.sortEmployeesByAge());
+	}
+	@Test
+	void testSortBySalary() {
+		Employee[] expected = {
+				empl2, empl3, empl1
+			};
+			assertArrayEquals(expected, company.sortEmployeesBySalary());
+	}
 
 }
