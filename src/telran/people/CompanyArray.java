@@ -1,12 +1,29 @@
 package telran.people;
 
 import java.util.Arrays;
+import java.util.Iterator;
+import java.util.function.Predicate;
 
 import telran.people.comparators.EmployeeSalaryComparator;
 import telran.people.comparators.PersonAgeComparator;
 
 public class CompanyArray implements ICompany {
 protected  Employee[] employees = new Employee[0];
+private class CompanyIterator implements Iterator<Employee> {
+
+	@Override
+	public boolean hasNext() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Employee next() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}
 	@Override
 	public boolean addEmployee(Employee empl) {
 		if (getEmployee(empl.getId()) != null) {
@@ -77,6 +94,27 @@ protected  Employee[] employees = new Employee[0];
 		Employee[] res = Arrays.copyOf(employees, employees.length);
 		Arrays.sort(res, new EmployeeSalaryComparator());
 		return res;
+	}
+
+	@Override
+	public Employee[] findEmployees(Predicate<Employee> predicate) {
+		Employee[] res = new Employee[employees.length];
+		int ind = 0;
+		
+		for (int i = 0; i < employees.length; i++) {
+			if (predicate.test(employees[i])) {
+				res[ind++] = employees[i];
+				
+			}
+			
+		}
+		return Arrays.copyOf(res, ind);
+	}
+
+	@Override
+	public Iterator<Employee> iterator() {
+		
+		return new CompanyIterator();
 	}
 
 }
