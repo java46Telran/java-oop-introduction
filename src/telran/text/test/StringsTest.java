@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import telran.text.Strings;
+
 class StringsTest {
 
 	@BeforeEach
@@ -13,7 +15,9 @@ class StringsTest {
 
 	@Test
 	void testSortStringsAsDates() {
-		//TODO
+		String input[] = {"10/08/2021", "30/12/2020", "5/08/2021"};
+		String expected[] = {"30/12/2020", "5/08/2021", "10/08/2021"};
+		assertArrayEquals(expected, Strings.sortStringsAsDates(input));
 	}
 
 }

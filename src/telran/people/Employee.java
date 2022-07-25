@@ -4,6 +4,17 @@ public class Employee extends Person {
 	private int basicSalary;
 	private static int minBirthYear = 1950;
 	private static int maxBirthYear = 2000;
+	private static int minBasicSalary = 100;
+	public static int getMinBasicSalary() {
+		return minBasicSalary;
+	}
+
+
+	public static void setMinBasicSalary(int minBasicSalary) {
+		Employee.minBasicSalary = minBasicSalary;
+	}
+
+
 	public static int getMinBirthYear() {
 		return minBirthYear;
 	}
@@ -37,8 +48,10 @@ public class Employee extends Person {
 
 
 	public void setBasicSalary(int basicSalary) {
-		//TODO 
-		//check basic salary - can not be less than 100 with possible throwing exception
+		if (basicSalary < minBasicSalary) {
+			throw new IllegalArgumentException(String.format("%d - wrong value; Basic salary cannot be less than %d",
+					basicSalary, minBasicSalary));
+		}
 		this.basicSalary = basicSalary;
 	}
 	public int computePay() {

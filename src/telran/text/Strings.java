@@ -1,5 +1,7 @@
 package telran.text;
 
+import java.util.Arrays;
+
 public class Strings {
 /**
  * 
@@ -12,7 +14,8 @@ public class Strings {
  * Use only class String and interface Comparator
  */
 	public static String[] sortStringsAsDates(String [] dates) {
-	//TODO
-	return null;
+	String [] res = Arrays.copyOf(dates, dates.length);
+	Arrays.sort(res, new StringsDatesComparator());
+	return res;
 }
 }
