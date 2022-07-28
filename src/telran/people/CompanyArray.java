@@ -2,6 +2,7 @@ package telran.people;
 
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 import java.util.function.Predicate;
 
 import telran.people.comparators.EmployeeSalaryComparator;
@@ -10,17 +11,19 @@ import telran.people.comparators.PersonAgeComparator;
 public class CompanyArray implements ICompany {
 protected  Employee[] employees = new Employee[0];
 private class CompanyIterator implements Iterator<Employee> {
-
+int currentInd = 0;
 	@Override
 	public boolean hasNext() {
-		// TODO Auto-generated method stub
-		return false;
+		
+		return currentInd < employees.length;
 	}
 
 	@Override
 	public Employee next() {
-		// TODO Auto-generated method stub
-		return null;
+		if (!hasNext()) {
+			throw new NoSuchElementException();
+		}
+		return employees[currentInd++];
 	}
 	
 }
