@@ -33,7 +33,7 @@ class RangeTest {
 	void iterablePredicateTest() {
 		//Test for HW #12
 		int expected[] = {2};
-		Predicate<Integer> evenPredicate = new EvenNumbersPredicate();
+		Predicate<Integer> evenPredicate = n -> n % 2 == 0;
 		range.setPredicate(evenPredicate);
 		int actual[] = getActualArray(1);
 		assertArrayEquals(expected, actual);

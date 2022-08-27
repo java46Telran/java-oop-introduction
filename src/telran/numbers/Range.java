@@ -34,7 +34,7 @@ public class Range implements Iterable<Integer> {
 
 		private Predicate<Integer> getIteratorPredicate() {
 			
-			return predicate == null ? new AllNumbersPredicate() : predicate;
+			return predicate == null ? n -> true : predicate;
 		}
 
 		@Override

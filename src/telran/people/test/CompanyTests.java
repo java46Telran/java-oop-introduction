@@ -119,7 +119,7 @@ class CompanyTests {
 	@Test
 	void testFindSalesPersons() {
 		Employee[] expected = {empl2};
-		assertArrayEquals(expected, company.findEmployees(new SalesPersonPredicate()));
+		assertArrayEquals(expected, company.findEmployees(x -> x instanceof SalesPerson));
 	}
 	@Test
 	void testFindEmployeesSalaryRange() {
